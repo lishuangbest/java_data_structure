@@ -14,7 +14,7 @@ public class Test4 {
     算法思想：由于顺序表是有序的且s和t之间的元素是连续的，要实现st之间元素的删除，使用t后的元素从s后开始替换即可
     先寻找大于s的第一个元素，再找到大于t的第一个元素，替换即可
      */
-    public void deleteFromSToT(int s, int t, ListArray list){
+    public static void deleteFromSToT(int s, int t, ListArray list){
         if (s>t){
             throw new NullValueListException("错误：s值大于t值。");
         }
@@ -28,8 +28,22 @@ public class Test4 {
         for (; j<list.getSize() ; i++,j++) {
             list.replace(i,list.get(j));        //使用t后的元素替换s-t之间的元素
         }
-        for (int k = list.getSize()-1; k > i; k++) {
+        for (int k = list.getSize()-1; k >= i; k--) {
             list.remove(k);     //删除替换完成后的i后面的元素
+        }
+    }
+
+    //测试
+    public static void main(String[] args) {
+        ListArray listArray = new ListArray();
+        listArray.insert(0,1);
+        listArray.insert(1,2);
+        listArray.insert(2,3);
+        listArray.insert(3,4);
+        listArray.insert(4,5);
+        deleteFromSToT(2,4,listArray);
+        for (int i = 0; i < listArray.getSize(); i++) {
+            System.out.println(listArray.get(i));
         }
     }
 }

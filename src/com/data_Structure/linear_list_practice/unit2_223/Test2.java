@@ -16,4 +16,18 @@ public class Test2 {
             listArray.replace(listArray.getSize()-i-1,obj);
         }
     }
+
+    //测试
+    public static void main(String[] args) {
+        ListArray listArray = new ListArray();
+        listArray.insert(0,1);
+        listArray.insert(1,2);
+        listArray.insert(2,3);
+        listArray.insert(3,4);
+        listArray.insert(4,5);
+        reversalListArray(listArray);
+        for (int i = 0; i < listArray.getSize(); i++) {
+            System.out.println(listArray.get(i));
+        }
+    }
 }

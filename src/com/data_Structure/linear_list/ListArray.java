@@ -90,7 +90,7 @@ public class ListArray implements List{
 
     //将数据元素e插入到元素obj之后
     @Override
-    public Object insertAfter(Object obj, Object e) {
+    public boolean insertAfter(Object obj, Object e) {
         int i = indexOf(obj);
         if (i<0) return false;
         insert(i+1,e);
@@ -133,7 +133,7 @@ public class ListArray implements List{
         return obj;
     }
 
-    //返回线性表中序号为i 的数据元素
+    //返回线性表中序号为i的数据元素
     @Override
     public Object get(int i) throws OutOfBoundaryExcepton {
         if(i<0||i>=size){
